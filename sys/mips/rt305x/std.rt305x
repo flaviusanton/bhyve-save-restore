@@ -1,0 +1,7 @@
+# $FreeBSD: head/sys/mips/rt305x/std.rt305x 295152 2016-02-02 16:25:53Z adrian $
+# Standard include file for RT305XF SoC
+
+files	"../rt305x/files.rt305x"
+
+cpu		CPU_MIPS24K
+

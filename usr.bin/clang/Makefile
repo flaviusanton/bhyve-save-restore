@@ -1,0 +1,40 @@
+# $FreeBSD: head/usr.bin/clang/Makefile 296417 2016-03-05 20:24:31Z dim $
+
+.include <src.opts.mk>
+
+SUBDIR=	clang clang-tblgen llvm-tblgen
+
+.if !defined(TOOLS_PREFIX)
+.if ${MK_CLANG_EXTRAS} != "no"
+SUBDIR+=bugpoint \
+	llc \
+	lli \
+	llvm-ar \
+	llvm-as \
+	llvm-bcanalyzer \
+	llvm-cov \
+	llvm-cxxdump \
+	llvm-diff \
+	llvm-dis \
+	llvm-dwarfdump \
+	llvm-extract \
+	llvm-link \
+	llvm-lto \
+	llvm-mc \
+	llvm-nm \
+	llvm-objdump \
+	llvm-pdbdump \
+	llvm-profdata \
+	llvm-rtdyld \
+	llvm-symbolizer \
+	opt
+.endif
+
+.if ${MK_LLDB} != "no"
+SUBDIR+=lldb
+.endif
+.endif # TOOLS_PREFIX
+
+SUBDIR_PARALLEL=
+
+.include <bsd.subdir.mk>
